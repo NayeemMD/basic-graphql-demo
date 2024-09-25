@@ -1,3 +1,13 @@
+Getting started: 
+Java version: 21
+
+run the following command: 
+```shell
+./mvnw clean install
+```
+
+access graphql in local : http://localhost:80801/graphiql
+
 ```graphql
 mutation {
   addBook(title: "A Song of Ice and Fire Novel series", author: "George R. R. Martin") {
