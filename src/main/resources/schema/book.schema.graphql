@@ -1,0 +1,35 @@
+type Book {
+    uuid: ID!
+    title: String!
+    author: String!
+    reviews: [Review]
+    inventory: Inventory
+}
+type Review {
+    id: ID!
+    bookId: String!
+    stars: Int
+    txt: String
+}
+
+type Inventory {
+    uuid: ID
+    qty: Int
+}
+
+type Query {
+    book(uuid: ID!): Book
+    books: [Book]
+}
+
+type Mutation {
+    addBook(title: String!, author: String!): Book
+    addReview(bookUuid: ID!, stars: Int!, txt: String!): Review
+    updateInventory(bookUuid: ID!, qty: Int!): Inventory
+}
+
+type Subscription {
+    bookAdded: Book
+    reviewAdded: Review
+    inventoryUpdated: Inventory
+}
